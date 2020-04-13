@@ -1,14 +1,14 @@
 Async PHP migrations & seeds
 ============================
 
-[![CircleCI](https://circleci.com/gh/spacetab-io/rdb/tree/master.svg?style=svg)](https://circleci.com/gh/spacetab-io/rdb/tree/master)
-[![codecov](https://codecov.io/gh/spacetab-io/rdb/branch/master/graph/badge.svg)](https://codecov.io/gh/spacetab-io/rdb)
+[![CircleCI](https://circleci.com/gh/spacetab-io/rdb-php/tree/master.svg?style=svg)](https://circleci.com/gh/spacetab-io/rdb-php/tree/master)
+[![codecov](https://codecov.io/gh/spacetab-io/rdb-php/branch/master/graph/badge.svg)](https://codecov.io/gh/spacetab-io/rdb-php)
 
 Dead-simple PHP migrations controlled from code.
 
 ## Features
 
-* Asynchronous migrations build with <a href="https://amphp.org/">Amp</a>.</strong></p>.
+* Asynchronous migrations build with <strong><a href="https://amphp.org/">Amp</a></strong>.
 * Developed to use from **code** and **cli**.
 * Developed to use any database with these tool. Currently supported official [Amp Postgres](https://github.com/amphp/postgres) & [MySQL](https://github.com/amphp/mysql) clients. 
 * You can extend console commands to use tool with your custom config definitions instead of always use `--connect` flag.

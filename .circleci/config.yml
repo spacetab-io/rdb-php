@@ -10,13 +10,12 @@ jobs:
     # specify the version you desire here
       - image: circleci/php:7.4-browsers
       - image: circleci/postgres:12-alpine
-          environment:
-            POSTGRES_USER: root
-            POSTGRES_DB: test
 
     steps:
       - checkout
-
+      - run: sudo apt-get install postgresql-client libpq-dev
+      - run: sudo docker-php-ext-install pgsql
+      - run: sudo docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
     # Download and cache dependencies
       - restore_cache:
           keys:
@@ -34,4 +33,4 @@ jobs:
       - run: vendor/bin/phpstan analyse src --level 5
       - run: vendor/bin/phpunit -c phpunit-unit.xml --coverage-clover=coverage.xml
       - run: bash <(curl -s https://codecov.io/bash)
-      - run: PHPUNIT_RDB_DBNAME=test PHPUNIT_RDB_USER=root vendor/bin/phpunit -c phpunit-db.xml
+      - run: PHPUNIT_RDB_DBNAME=postgres PHPUNIT_RDB_USER=postgres vendor/bin/phpunit -c phpunit-db.xml

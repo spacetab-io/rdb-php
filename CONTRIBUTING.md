@@ -48,4 +48,4 @@ https://www.php-fig.org/psr/psr-1/
 https://www.php-fig.org/psr/psr-2/
 
 ## License
-By contributing, you agree that your contributions will be licensed under its GNU GPL v3.
+By contributing, you agree that your contributions will be licensed under its MIT.

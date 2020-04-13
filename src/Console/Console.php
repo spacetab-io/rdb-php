@@ -16,7 +16,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 final class Console
 {
     public const VERSION = '1.0';
-    public const WHOIS   = '<cyan>Rdb – great tool for working with database migrations and seeds (v' . self::VERSION . ').</cyan>';
+    public const WHOIS   = '<cyan>Rdb – dead-simple async PHP migrations controlled from code. (v' . self::VERSION . ').</cyan>';
 
     /**
      * Run console application.

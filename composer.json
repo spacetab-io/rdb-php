@@ -1,6 +1,6 @@
 {
   "name": "spacetab-io/rdb",
-  "description": "Great tool for working with database migrations and seeds.",
+  "description": "Dead-simple async PHP migrations controlled from code.",
   "type": "library",
   "license": "MIT",
   "authors": [

@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+use Spacetab\Rdb\Console\Console;
+
+ini_set('date.timezone', 'UTC');
+
+$locations = [
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/vendor/autoload.php'
+];
+
+foreach ($locations as $file) {
+    if (file_exists($file)) {
+        require_once $file;
+        break;
+    }
+}
+
+Console::main($argv);

@@ -1,0 +1,9 @@
+.idea/
+vendor/
+database/
+index.php
+composer.lock
+coverage/
+tests/Stub/Make/
+.phpunit.result.cache
+.DS_Store

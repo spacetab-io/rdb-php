@@ -1,0 +1,44 @@
+{
+  "name": "spacetab-io/rdb",
+  "description": "Great tool for working with database migrations and seeds.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "roquie",
+      "email": "roquie0@gmail.com"
+    }
+  ],
+  "bin": [
+    "bin/rdb"
+  ],
+  "require": {
+    "php": "^7.4",
+    "symfony/console": "^5.0",
+    "league/flysystem": "^1.0",
+    "psr/log": "^1.1",
+    "amphp/amp": "^2.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "symfony/var-dumper": "^5.0",
+    "spacetab-io/logger-php": "^1.0",
+    "amphp/postgres": "^1.2",
+    "amphp/mysql": "^2.0",
+    "amphp/phpunit-util": "^1.3",
+    "phpstan/phpstan": "^0.12.18"
+  },
+  "autoload": {
+    "psr-4": {
+      "Spacetab\\Rdb\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Spacetab\\Rdb\\Tests\\": "tests"
+    }
+  },
+  "suggest": {
+    "monolog/monolog": "For usage when the app starts."
+  }
+}

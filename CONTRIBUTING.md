@@ -20,8 +20,8 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 5. Make sure your code lints.
 6. Issue that pull request!
 
-## Any contributions you make will be under the GNU GPL v3 License
-In short, when you submit code changes, your submissions are understood to be under the same [GNU GPL v3 License](https://www.gnu.org/licenses/gpl-3.0.en.html) that covers the project. Feel free to contact the maintainers if that's a concern.
+## Any contributions you make will be under the MIT License
+In short, when you submit code changes, your submissions are understood to be under the same MIT license that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## Report bugs using Github's issues
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!

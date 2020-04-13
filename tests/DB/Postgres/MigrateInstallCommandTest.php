@@ -13,7 +13,7 @@ class MigrateInstallCommandTest extends DefaultTestCase
     {
         yield $this->clean();
 
-        $process = new Process(['bin/rdb', 'migrate:install', '--connect', $this->getConnectionString()]);
+        $process = new Process(['bin/rdb', 'migrate:install', '--connect', $this->getPostgresConnectionString()]);
         yield $process->start();
 
         $contents = yield ByteStream\buffer($process->getStdout());

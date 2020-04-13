@@ -14,7 +14,7 @@ class SeedRunCommandTest extends DefaultTestCase
         yield $this->clean();
         yield $this->migrateUpThroughConsole();
 
-        $process = new Process(['bin/rdb', 'seed:run', '--connect', $this->getConnectionString(), '--path', self::SEEDS_PATH]);
+        $process = new Process(['bin/rdb', 'seed:run', '--connect', $this->getPostgresConnectionString(), '--path', self::SEEDS_PATH]);
         yield $process->start();
 
         $contents = yield ByteStream\buffer($process->getStdout());

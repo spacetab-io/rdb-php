@@ -9,10 +9,6 @@ use Amp\Postgres;
 use Amp\Process\Process;
 use Amp\Promise;
 use Amp\Sql\Pool;
-use League\Flysystem\Adapter\Local;
-use Spacetab\Rdb\Generic\Migrator;
-use Spacetab\Rdb\Rdb;
-use Spacetab\Rdb\Driver;
 use function Amp\call;
 use Amp\ByteStream;
 
@@ -28,7 +24,7 @@ abstract class DefaultTestCase extends AsyncTestCase
         parent::setUp();
 
         $this->pool = Postgres\pool(
-            Postgres\ConnectionConfig::fromString($this->getConnectionString())
+            Postgres\ConnectionConfig::fromString($this->getPostgresConnectionString())
         );
     }
 
@@ -43,7 +39,7 @@ abstract class DefaultTestCase extends AsyncTestCase
     {
         $command = [
             'bin/rdb', 'migrate:up', '-i',
-            '--connect', $this->getConnectionString(),
+            '--connect', $this->getPostgresConnectionString(),
             '--migrate-path', self::MIGRATIONS_PATH
         ];
 
@@ -73,7 +69,7 @@ abstract class DefaultTestCase extends AsyncTestCase
     {
         $command = [
             'bin/rdb', 'migrate:' . $cmdName,
-            '--connect', $this->getConnectionString(),
+            '--connect', $this->getPostgresConnectionString(),
             '--path', self::MIGRATIONS_PATH
         ];
 
@@ -102,7 +98,7 @@ abstract class DefaultTestCase extends AsyncTestCase
         return call(function () {
             $process = new Process([
                 'bin/rdb', 'migrate:reset',
-                '--connect', $this->getConnectionString(),
+                '--connect', $this->getPostgresConnectionString(),
                 '--path', self::MIGRATIONS_PATH
             ]);
 
@@ -125,7 +121,7 @@ abstract class DefaultTestCase extends AsyncTestCase
         return call(function () {
             $process = new Process([
                 'bin/rdb', 'migrate:status',
-                '--connect', $this->getConnectionString(),
+                '--connect', $this->getPostgresConnectionString(),
                 '--path', self::MIGRATIONS_PATH
             ]);
 
@@ -174,13 +170,13 @@ abstract class DefaultTestCase extends AsyncTestCase
     /**
      * @return string
      */
-    protected function getConnectionString(): string
+    protected function getPostgresConnectionString(): string
     {
-        $host   = getenv('PHPUNIT_RDB_HOST') ?: 'localhost';
-        $user   = getenv('PHPUNIT_RDB_USER') ?: getenv('USER');
-        $port   = getenv('PHPUNIT_RDB_PORT') ?: 5432;
-        $dbName = getenv('PHPUNIT_RDB_DBNAME') ?: getenv('USER');
-        $pwd    = getenv('PHPUNIT_RDB_PWD') ?: '';
+        $host   = getenv('PHPUNIT_RDB_PG_HOST') ?: 'localhost';
+        $user   = getenv('PHPUNIT_RDB_PG_USER') ?: getenv('USER');
+        $port   = getenv('PHPUNIT_RDB_PG_PORT') ?: 5432;
+        $dbName = getenv('PHPUNIT_RDB_PG_DBNAME') ?: getenv('USER');
+        $pwd    = getenv('PHPUNIT_RDB_PG_PWD') ?: '';
 
         return sprintf('host=%s port=%d dbname=%s user=%s password=%s', $host, (int) $port, $dbName, $user, $pwd);
     }

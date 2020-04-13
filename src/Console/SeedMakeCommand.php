@@ -26,7 +26,7 @@ class SeedMakeCommand extends Command
     {
         $this
             ->setName('make:seed')
-            ->setDescription('Create a new seeder class')
+            ->setDescription('Create a new seeder file')
             ->setHelp('Example of usage: rdb make:seed user_seeder');
 
         $this

@@ -78,7 +78,7 @@ Available commands:
   list             Lists commands
  make
   make:migration   Create a new migration files
-  make:seed        Create a new seeder class
+  make:seed        Create a new seeder file
  migrate
   migrate:down     [migrate:rollback] Rollback the last database migration
   migrate:install  Create the migration repository

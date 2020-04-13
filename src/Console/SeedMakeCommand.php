@@ -22,6 +22,8 @@ use Spacetab\Rdb\Driver;
  */
 class SeedMakeCommand extends Command
 {
+    protected static $defaultName = 'make:seed';
+
     protected function configure()
     {
         $this

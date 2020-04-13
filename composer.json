@@ -22,7 +22,6 @@
   "require-dev": {
     "phpunit/phpunit": "^9.0",
     "symfony/var-dumper": "^5.0",
-    "spacetab-io/logger-php": "^1.0",
     "amphp/postgres": "^1.2",
     "amphp/mysql": "^2.0",
     "amphp/phpunit-util": "^1.3",
@@ -37,8 +36,5 @@
     "psr-4": {
       "Spacetab\\Rdb\\Tests\\": "tests"
     }
-  },
-  "suggest": {
-    "monolog/monolog": "For usage when the app starts."
   }
 }

@@ -20,6 +20,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class MigrateUpCommand extends Command
 {
+    protected static $defaultName = 'migrate:up';
+
     protected function configure()
     {
         $this

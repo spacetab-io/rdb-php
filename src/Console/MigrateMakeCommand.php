@@ -22,6 +22,8 @@ use Spacetab\Rdb\Driver;
  */
 class MigrateMakeCommand extends Command
 {
+    protected static $defaultName = 'make:migration';
+
     protected function configure()
     {
         $this

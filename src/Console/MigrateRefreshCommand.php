@@ -19,6 +19,8 @@ use Spacetab\Rdb\Driver;
  */
 class MigrateRefreshCommand extends Command
 {
+    protected static $defaultName = 'migrate:refresh';
+
     protected function configure()
     {
         $this

@@ -20,6 +20,8 @@ use Amp\Promise;
  */
 class MigrateStatusCommand extends Command
 {
+    protected static $defaultName = 'migrate:status';
+
     protected function configure()
     {
         $this

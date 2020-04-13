@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Spacetab\Rdb\Console;
 
-use Amp\Delayed;
 use Amp\Promise;
 use InvalidArgumentException;
 use League\Flysystem\Adapter\Local;

@@ -19,6 +19,8 @@ use Spacetab\Rdb\Driver;
  */
 class MigrateResetCommand extends Command
 {
+    protected static $defaultName = 'migrate:reset';
+
     protected function configure()
     {
         $this

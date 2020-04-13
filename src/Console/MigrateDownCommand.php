@@ -19,6 +19,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class MigrateDownCommand extends Command
 {
+    protected static $defaultName = 'migrate:down';
+
     protected function configure()
     {
         $this

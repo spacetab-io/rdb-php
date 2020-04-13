@@ -19,6 +19,8 @@ use Amp\Promise;
  */
 class MigrateInstallCommand extends Command
 {
+    protected static $defaultName = 'migrate:install';
+
     protected function configure()
     {
         $this

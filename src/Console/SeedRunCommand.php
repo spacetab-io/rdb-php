@@ -20,6 +20,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class SeedRunCommand extends Command
 {
+    protected static $defaultName = 'seed:run';
+
     protected function configure()
     {
         $this

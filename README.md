@@ -59,7 +59,7 @@ vendor/bin/rdb list
 ```
 
 ```text
-Rdb – great tool for working with database migrations and seeds (v1.0).
+Rdb – dead-simple async PHP migrations controlled from code. (v1.0).
 
 Usage:
   command [options] [arguments]

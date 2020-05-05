@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spacetab\Rdb\Tests\DB\Postgres;
+namespace Spacetab\Rdb\Tests\Integration\Postgres;
 
 use Amp\PHPUnit\AsyncTestCase;
 use Amp\Postgres;
@@ -18,6 +18,7 @@ abstract class DefaultTestCase extends AsyncTestCase
     protected const SEEDS_PATH = __DIR__ . '/../../Stub/DefaultCase/seeds';
 
     protected Pool $pool;
+    protected bool $provideConnectFlag = true;
 
     protected function setUp(): void
     {
@@ -37,11 +38,10 @@ abstract class DefaultTestCase extends AsyncTestCase
 
     protected function migrateUpThroughConsole(bool $seed = false, bool $step = false): Promise
     {
-        $command = [
-            'bin/rdb', 'migrate:up', '-i',
-            '--connect', $this->getPostgresConnectionString(),
+        $command = $this->getCommand([
+            $this->getBinary(), 'migrate:up', '-i',
             '--migrate-path', self::MIGRATIONS_PATH
-        ];
+        ]);
 
         switch (true) {
             case $seed:
@@ -67,11 +67,10 @@ abstract class DefaultTestCase extends AsyncTestCase
 
     protected function migrateDownThroughConsole(?int $step = null, string $cmdName = 'down'): Promise
     {
-        $command = [
-            'bin/rdb', 'migrate:' . $cmdName,
-            '--connect', $this->getPostgresConnectionString(),
+        $command = $this->getCommand([
+            $this->getBinary(), 'migrate:' . $cmdName,
             '--path', self::MIGRATIONS_PATH
-        ];
+        ]);
 
         if ($step) {
             $command = array_merge($command, ['--step', $step]);
@@ -96,11 +95,10 @@ abstract class DefaultTestCase extends AsyncTestCase
     protected function migrateResetThroughConsole(): Promise
     {
         return call(function () {
-            $process = new Process([
-                'bin/rdb', 'migrate:reset',
-                '--connect', $this->getPostgresConnectionString(),
+            $process = new Process($this->getCommand([
+                $this->getBinary(), 'migrate:reset',
                 '--path', self::MIGRATIONS_PATH
-            ]);
+            ]));
 
             yield $process->start();
 
@@ -119,11 +117,10 @@ abstract class DefaultTestCase extends AsyncTestCase
     protected function migrateStatusThroughConsole(): Promise
     {
         return call(function () {
-            $process = new Process([
-                'bin/rdb', 'migrate:status',
-                '--connect', $this->getPostgresConnectionString(),
+            $process = new Process($this->getCommand([
+                $this->getBinary(), 'migrate:status',
                 '--path', self::MIGRATIONS_PATH
-            ]);
+            ]));
 
             yield $process->start();
 
@@ -179,5 +176,19 @@ abstract class DefaultTestCase extends AsyncTestCase
         $pwd    = getenv('PHPUNIT_RDB_PG_PWD') ?: '';
 
         return sprintf('host=%s port=%d dbname=%s user=%s password=%s', $host, (int) $port, $dbName, $user, $pwd);
+    }
+
+    protected function getBinary(): string
+    {
+        return 'bin/rdb';
+    }
+
+    protected function getCommand(array $command)
+    {
+        if ($this->provideConnectFlag) {
+            return array_merge($command, ['--connect', $this->getPostgresConnectionString()]);
+        }
+
+        return $command;
     }
 }

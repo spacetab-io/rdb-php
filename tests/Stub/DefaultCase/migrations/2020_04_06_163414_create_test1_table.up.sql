@@ -3,3 +3,8 @@
 CREATE TABLE test1 (
   text VARCHAR
 );
+
+-- -- https://github.com/amphp/postgres/issues/27
+-- select 1;
+-- select 2;
+-- select 3;

@@ -206,14 +206,15 @@ abstract class AbstractMigrationRepository implements MigrationRepositoryInterfa
     {
         return call(function () use ($sql) {
             /** @var \Amp\Sql\Transaction $transaction */
-            $transaction = yield $this->pool->beginTransaction();
-            try {
-                yield $transaction->execute($sql);
-                yield $transaction->commit();
-            } catch (\Throwable $e) {
-                yield $transaction->rollback();
-                throw $e;
-            }
+//            $transaction = yield $this->pool->beginTransaction();
+//            try {
+//                yield $transaction->query($sql);
+//                yield $transaction->commit();
+//            } catch (\Throwable $e) {
+//                yield $transaction->rollback();
+//                throw $e;
+//            }
+            yield $this->pool->query($sql);
         });
     }
 

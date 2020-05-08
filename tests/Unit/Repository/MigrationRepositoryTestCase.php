@@ -20,8 +20,8 @@ abstract class MigrationRepositoryTestCase extends AsyncTestCase
     {
         $transaction = $this->createMock(Transaction::class);
         $transaction
-            ->expects($this->once())
-            ->method('execute')
+            ->expects($this->any())
+            ->method('query')
             ->willReturn(new Success());
 
         $transaction
@@ -48,8 +48,8 @@ abstract class MigrationRepositoryTestCase extends AsyncTestCase
 
         $transaction = $this->createMock(Transaction::class);
         $transaction
-            ->expects($this->once())
-            ->method('execute')
+            ->expects($this->any())
+            ->method('query')
             ->willReturn(new Success());
 
         $transaction

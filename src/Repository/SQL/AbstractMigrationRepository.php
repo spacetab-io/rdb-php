@@ -208,10 +208,7 @@ abstract class AbstractMigrationRepository implements MigrationRepositoryInterfa
             /** @var \Amp\Sql\Transaction $transaction */
             $transaction = yield $this->pool->beginTransaction();
             try {
-                // to avoid bug https://github.com/amphp/postgres/issues/27
-                foreach (array_filter(explode(';', $sql), fn($x) => preg_match('/s+/', $x)) as $item) {
-                    yield $transaction->query($item);
-                }
+                yield $transaction->query($sql);
                 yield $transaction->commit();
             } catch (\Throwable $e) {
                 yield $transaction->rollback();

@@ -35,7 +35,10 @@ class SeederRepository implements SeederRepositoryInterface
             /** @var \Amp\Sql\Transaction $transaction */
             $transaction = yield $this->pool->beginTransaction();
             try {
-                yield $transaction->execute($sql);
+                // to avoid bug https://github.com/amphp/postgres/issues/27
+                foreach (array_filter(explode(';', $sql), fn($x) => preg_match('/s+/', $x)) as $item) {
+                    yield $transaction->query($item);
+                }
                 yield $transaction->commit();
             } catch (\Throwable $e) {
                 yield $transaction->rollback();

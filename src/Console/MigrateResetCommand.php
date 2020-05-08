@@ -26,7 +26,7 @@ class MigrateResetCommand extends Command
         $this
             ->setName('migrate:reset')
             ->setDescription('Rollback all database migrations')
-            ->setHelp('Example of usage: rdb migrate:reset --connect "host=localhost user=root dbname=test"');
+            ->setHelp('Example of usage: rdb migrate:reset --connect "host=localhost user=root db=test"');
 
         $this
             ->addOption('connect', 'c', InputOption::VALUE_OPTIONAL, self::CONN_ARG_DESCRIPTION)

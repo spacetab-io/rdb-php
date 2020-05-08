@@ -26,7 +26,7 @@ class MigrateRefreshCommand extends Command
         $this
             ->setName('migrate:refresh')
             ->setDescription('Reset and re-run all migrations')
-            ->setHelp('Example of usage: rdb migrate:refresh --connect "host=localhost user=root dbname=test"');
+            ->setHelp('Example of usage: rdb migrate:refresh --connect "host=localhost user=root db=test"');
 
         $this
             ->addOption('connect', 'c', InputOption::VALUE_OPTIONAL, self::CONN_ARG_DESCRIPTION)

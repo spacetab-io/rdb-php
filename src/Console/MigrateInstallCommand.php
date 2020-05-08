@@ -26,7 +26,7 @@ class MigrateInstallCommand extends Command
         $this
             ->setName('migrate:install')
             ->setDescription('Create the migration repository')
-            ->setHelp('Example of usage: rdb migrate:install --connect "host=localhost user=root dbname=test"');
+            ->setHelp('Example of usage: rdb migrate:install --connect "host=localhost user=root db=test"');
 
         $this
             ->addOption('connect', 'c', InputOption::VALUE_OPTIONAL, self::CONN_ARG_DESCRIPTION)

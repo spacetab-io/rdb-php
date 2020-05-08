@@ -27,7 +27,7 @@ class MigrateUpCommand extends Command
         $this
             ->setName('migrate:up')
             ->setDescription('Run the database migrations')
-            ->setHelp('Example of usage: rdb migrate:up --connect "host=localhost user=root dbname=test"');
+            ->setHelp('Example of usage: rdb migrate:up --connect "host=localhost user=root db=test"');
 
         $this
             ->addOption('connect', 'c', InputOption::VALUE_REQUIRED, self::CONN_ARG_DESCRIPTION)

@@ -27,7 +27,7 @@ class SeedRunCommand extends Command
         $this
             ->setName('seed:run')
             ->setDescription('Seed the database with records')
-            ->setHelp('Example of usage: rdb seed:run --connect "host=localhost user=root dbname=test"');
+            ->setHelp('Example of usage: rdb seed:run --connect "host=localhost user=root db=test"');
 
         $this
             ->addArgument('name', InputArgument::OPTIONAL, 'The class name of the root seeder')

@@ -27,7 +27,7 @@ class MigrateStatusCommand extends Command
         $this
             ->setName('migrate:status')
             ->setDescription('Show the status of each migration')
-            ->setHelp('Example of usage: rdb migrate:status --connect "host=localhost user=root dbname=test"');
+            ->setHelp('Example of usage: rdb migrate:status --connect "host=localhost user=root db=test"');
 
         $this
             ->addOption('connect', 'c', InputOption::VALUE_OPTIONAL, self::CONN_ARG_DESCRIPTION)

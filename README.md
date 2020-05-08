@@ -97,8 +97,8 @@ Available commands:
 
 ## Tests
 
-* Unit `vendor/bin/phpunit -c phpunit-unit.xml`
-* DB `vendor/bin/phpunit -c phpunit-db.xml`. Accept ENV's: `PHPUNIT_RDB_PG_HOST`, `PHPUNIT_RDB_PG_PORT`, 
+* Unit `vendor/bin/phpunit --testsuite Unit`
+* Integration `vendor/bin/phpunit --testsuite Integration`. Accept ENV's: `PHPUNIT_RDB_PG_HOST`, `PHPUNIT_RDB_PG_PORT`, 
 `PHPUNIT_RDB_PG_DBNAME`, `PHPUNIT_RDB_PG_USER`, `PHPUNIT_RDB_PG_PWD`
 
 ## License

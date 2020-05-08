@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spacetab\Rdb\Tests\DB\Postgres;
+namespace Spacetab\Rdb\Tests\Integration\Postgres;
 
 use Amp\PHPUnit\AsyncTestCase;
 use Amp\Postgres;
@@ -178,6 +178,6 @@ abstract class DefaultTestCase extends AsyncTestCase
         $dbName = getenv('PHPUNIT_RDB_PG_DBNAME') ?: getenv('USER');
         $pwd    = getenv('PHPUNIT_RDB_PG_PWD') ?: '';
 
-        return sprintf('host=%s port=%d dbname=%s user=%s password=%s', $host, (int) $port, $dbName, $user, $pwd);
+        return sprintf('host=%s port=%d db=%s user=%s password=%s', $host, (int) $port, $dbName, $user, $pwd);
     }
 }

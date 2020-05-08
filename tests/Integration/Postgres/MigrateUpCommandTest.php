@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spacetab\Rdb\Tests\DB\Postgres;
+namespace Spacetab\Rdb\Tests\Integration\Postgres;
 
 class MigrateUpCommandTest extends DefaultTestCase
 {

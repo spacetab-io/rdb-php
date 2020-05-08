@@ -27,7 +27,7 @@ class MigrateDownCommand extends Command
             ->setName('migrate:down')
             ->setAliases(['migrate:rollback'])
             ->setDescription('Rollback the last database migration')
-            ->setHelp('Example of usage: rdb migrate:down --connect "host=localhost user=root dbname=test"');
+            ->setHelp('Example of usage: rdb migrate:down --connect "host=localhost user=root db=test"');
 
         $this
             ->addOption('connect', 'c', InputOption::VALUE_OPTIONAL, self::CONN_ARG_DESCRIPTION)
